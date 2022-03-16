@@ -1,0 +1,553 @@
+#draggable { width: 420px; height: 540px; padding: 0.5em; cursor: move; z-index: 1000000;}
+#header_top
+{
+    border: 2px solid #3F51B5;
+    margin-left: -15px; margin-right: -15px;
+}
+.chk{
+    width: 20px; 
+     height: 20px; 
+ }
+#main_header
+{
+    margin: 10px 20px;
+}
+
+#headings
+{
+    text-align: center;
+}
+
+#headings h2,#headings h3
+{
+    margin-top: 0;
+    /*font-family: Trebuchet MS, Helvetica, Arial, sans-serif;*/
+    /*font-weight: bold;*/
+
+}
+#headings h2
+{
+    color: #3F51B5;
+    font-size: 2em;
+
+}
+.row{margin-left: 0px !important; margin-right: 0px !important;}
+#headings h3
+{
+    color: #131630;
+    font-size: 1.6em;
+}
+
+#iris_img
+{
+    margin-top: 5px;
+}
+#content
+{
+    /* margin: 0 10px; */
+    height: 200px;
+}
+.remove_row_margin
+{
+    margin-left: -25px;
+    margin-right: -25px;
+}
+.remove_right_padding
+{
+    padding-right: 0;
+}
+.remove_left_padding
+{
+    padding-left: 0;
+}
+.panel_body_style
+{
+    padding: 5px; text-align: center;
+}
+.btn_style
+{
+    border: 1px solid #3F51B5;
+    background: #3F51B5;
+}
+.btn_style h4
+{
+    color: #ffffff;
+}
+.val
+{
+    color: #ffffff;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+
+/* Large desktops and laptops */
+/*====================================================================================================================*/
+@media (min-width: 1200px)
+{
+
+    #panel_1,#panel_2,#panel_3,#panel_4,#panel_5,#panel_6
+    {
+        /*height: 500px;*/
+    }
+
+}
+
+/* Portrait tablets and medium desktops */
+/*====================================================================================================================*/
+@media (min-width: 992px) and (max-width: 1199px)
+{
+
+    .btn_style h4
+    {
+        color: #ffffff;
+        font-size: 1.1em;
+        font-weight: bold;
+    }
+    .val
+    {
+        color: #ffffff;
+        font-size: 1.1em;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    #panel_1,#panel_2,#panel_3,#panel_4,#panel_5,#panel_6
+    {
+        height: 300px;
+    }
+
+}
+
+
+/* Portrait tablets and small desktops */
+/*====================================================================================================================*/
+@media (min-width: 768px) and (max-width: 991px)
+{
+    #headings h2
+    {
+        color: #3F51B5;
+        font-size: 1.7em;
+
+    }
+    #headings h3
+    {
+        color: #131630;
+        font-size: 1.3em;
+    }
+
+    #phc_img
+    {
+        text-align: center;
+    }
+
+    #phc_img img
+    {
+
+    }
+
+    #gop_logo
+    {
+        text-align: center;
+    }
+
+    #gop_logo img
+    {
+
+    }
+
+    #iris_img
+    {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    #iris_img img
+    {
+
+    }
+
+
+    .remove_right_padding
+    {
+        padding-right: 15px;
+    }
+
+    .remove_left_padding
+    {
+        padding-right: 15px;
+
+    }
+
+    #div_Registered_with_Council
+    {
+        margin-left: 15px;
+        margin-top: 15px;
+    }
+
+    #div_Registered_NonRegistered
+    {
+        padding-left: 15px;
+    }
+
+    .btn_style h4
+    {
+        color: #ffffff;
+        font-size: 1.3em;
+        font-weight: bold;
+    }
+    .val
+    {
+        color: #ffffff;
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .panel_height
+    {
+        height: 100px;
+    }
+
+}
+.modal-dialog {
+ 
+    width: 290px;
+
+  }
+
+
+/* Landscape phones and portrait tablets */
+/*====================================================================================================================*/
+@media (max-width: 767px)
+{
+    #headings h2
+    {
+        color: #3F51B5;
+        font-size: 1.5em;
+
+    }
+    #headings h3
+    {
+        color: #131630;
+        font-size: 1.2em;
+    }
+
+    #phc_img
+    {
+        text-align: center;
+    }
+
+    #phc_img img
+    {
+        width: 200px;
+        height: 60px;
+    }
+
+    #gop_logo
+    {
+        text-align: center;
+    }
+
+    #gop_logo img
+    {
+        width: 65px;
+        height: 50px;
+    }
+
+    #iris_img
+    {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    #iris_img img
+    {
+        width: 70px;
+        height: 45px;
+    }
+
+
+    .remove_right_padding
+    {
+        padding-right: 15px;
+    }
+
+    .remove_left_padding
+    {
+        padding-right: 15px;
+
+    }
+
+    #div_Registered_with_Council
+    {
+        margin-left: 15px;
+        margin-top: 15px;
+    }
+
+    #div_Registered_NonRegistered
+    {
+        padding-left: 15px;
+    }
+
+    .btn_style h4
+    {
+        color: #ffffff;
+        font-size: 1.3em;
+        font-weight: bold;
+    }
+    .val
+    {
+        color: #ffffff;
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    #panel_1,#panel_2,#panel_3,#panel_4,#panel_5,#panel_6
+    {
+        height: 300px;
+    }
+}
+
+
+/* Landscape phones and smaller */
+/*====================================================================================================================*/
+
+@media (max-width: 480px)
+{
+
+    #headings h2
+    {
+        color: #3F51B5;
+        font-size: 1.5em;
+
+    }
+    #headings h3
+    {
+        color: #131630;
+        font-size: 1.2em;
+    }
+
+    #phc_img
+    {
+        text-align: center;
+    }
+
+    #phc_img img
+    {
+        width: 200px;
+        height: 60px;
+    }
+
+    #gop_logo
+    {
+        text-align: center;
+    }
+
+    #gop_logo img
+    {
+        width: 65px;
+        height: 50px;
+    }
+
+    #iris_img
+    {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    #iris_img img
+    {
+        width: 70px;
+        height: 45px;
+    }
+
+
+    .remove_right_padding
+    {
+        padding-right: 15px;
+    }
+
+    .remove_left_padding
+    {
+        padding-right: 15px;
+
+    }
+
+    #div_Registered_with_Council
+    {
+        margin-left: 15px;
+        margin-top: 15px;
+    }
+
+    #div_Registered_NonRegistered
+    {
+        padding-left: 15px;
+    }
+
+    .btn_style h4
+    {
+        color: #ffffff;
+        font-size: 1.1em;
+        font-weight: bold;
+    }
+    .val
+    {
+        color: #ffffff;
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    #panel_1,#panel_2,#panel_3,#panel_4,#panel_5,#panel_6
+    {
+        height: 300px;
+    }
+
+}
+
+/*angular table*/
+
+ table, th , td  {
+     border: 1px solid grey;
+     border-collapse: collapse;
+     padding: 5px;
+ }
+table tr:nth-child(odd) {
+    background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+
+.card-counter{
+    box-shadow: 2px 2px 10px #DADADA;
+    margin: 5px;
+    padding: 20px 10px;
+    background-color: #fff;
+    height: 87px;
+    border-radius: 5px;
+    transition: .3s linear all;
+  }
+
+  .card-counter:hover{
+    box-shadow: 4px 4px 20px #DADADA;
+    transition: .3s linear all;
+  }
+
+  .card-counter.primary{
+    background-color: #007bff;
+    color: #FFF;
+  }
+
+  .card-counter.danger{
+    background-color: #ef5350;
+    color: #FFF;
+  }  
+
+  .card-counter.success{
+    background-color: #66bb6a;
+    color: #FFF;
+  }  
+
+  .card-counter.info{
+    background-color: #7d26cd;
+    color: #FFF;
+  }  
+  .card-counter.total_counts{
+    background-color: #118f26;
+    color: #FFF;
+  }
+.card-counter.total_counts_p{
+    background-color: #F42667;
+    color: #FFF;
+}
+  /* .card-counter.total_counts{
+    background-color: rgb(37, 163, 26); // For browsers that do not support gradients 
+    background-image: linear-gradient(to right, red, yellow, blue, violet);
+  }   */
+
+  .card-counter i{
+    font-size: 5em;
+    opacity: 0.2;
+  }
+
+  .card-counter .count-numbers{
+    position: absolute;
+    right: 35px;
+    top: 20px;
+    font-size: 32px;
+    display: block;
+  }
+
+  
+
+  .card-counter .count-name{
+    position: absolute;
+    right: 35px;
+    top: 65px;
+    font-style: italic;
+    text-transform: capitalize;
+    opacity: 0.5;
+    display: block;
+    font-size: 18px;
+  }
+
+  #primary-nav {
+    background-color: skyblue;
+  }
+
+  /* fd */
+  .fd_p{
+    border-radius: 20px;
+    background: #CCCCCC;
+    padding: 5px; 
+    font-size: 12px;
+    width: 120px;
+    color: #fff;
+    display:inline;
+  }
+
+  .tt-dropdown-menu{
+      background-color: beige;
+      color:black;
+      width: 170px;
+  }
+.modal-backdrop {
+    position: inherit;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: #000000;
+}
+
+
+.cenablebtn  {
+    background-color: #85cf6e;
+    color: rgb(12, 10, 10); 
+}
+.cenablebtn:hover {
+    
+    background-color: #fcfcfc;
+    color: rgb(7, 7, 7);    
+  }
+
+  .color1{
+    background-color: red; 
+    color: #FFF;
+  }
+  .color2{
+    background-color: rgb(224, 204, 17); 
+    color: #FFF;
+  }
+  .color3{
+    background-color: blue; 
+    color: #FFF;
+  }
+
+  
