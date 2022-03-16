@@ -130,7 +130,7 @@ function preNext(status){
 
 function activeSelectedLayerPano() {
 //alert(val)
-    map.off('click');
+   // map.off('click');
     map.on('click', function(e) {
         //map.off('click');
         $("#wg").html('');
@@ -247,6 +247,8 @@ function getFeatureInfoUrl(map, layer, latlng, params) {
     return url.toString();
 
 }
+
+var tempLayer='';
 function getProperties(layer1){
     var layer=''
     if(layer1=='dp_panel'){
@@ -255,7 +257,7 @@ function getProperties(layer1){
     if(layer1=='light_panel'){
         layer=light_panel;
     }
-    map.off('click');
+    //map.off('click');
     map.on('click', function(e) {
        // map.off('click');
 
@@ -276,10 +278,19 @@ function getProperties(layer1){
             method: 'GET',
             async: false,
             success: function callback(data) {
-               console.log(data.features[0].properties.device_id)
+            //   console.log(data.features[0].properties.device_id)
                 if(layer1=='dp_panel') {
                     getdpxy(data.features[0].properties.device_id, data.features[0].geometry.coordinates[0], data.features[0].geometry.coordinates[1])
                 }else{
+                    if(tempLayer!=''){
+                        map.removeLayer(tempLayer)
+                    }
+                    var xx=e.latlng.lng
+                    var yy=e.latlng.lat
+                    tempLayer =new L.CircleMarker([yy,xx], {
+                        radius: 10,
+                        color: '#FF0000'
+                    }).addTo(map);
                     getAllDemandpoints1(data.features[0].properties.dmd_pnt_id)
                 }
             }
@@ -375,13 +386,15 @@ function getAllDemandpoints1(di){
         contentType: "application/json; charset=utf-8",
         success: function callback(data) {
             console.log(data)
-              var y=parseFloat(data[0].y)
-            var x=parseFloat(data[0].x)
+              var y=parseFloat(data.xy[0].y)
+            var x=parseFloat(data.xy[0].x)
             map.setView([y, x], 20);
             if (newMarker1 != '') {
-                map.removeLayer(newMarker)
+                map.removeLayer(newMarker1)
             }
-            newMarker1 = new L.marker([y, x]).addTo(map);
+            var popupContent="<table><tr><td>Total LED</td><td>" + (parseInt(data.count[0].count)+ parseInt(data.count[1].count))+ "</td></tr><tr><td>Total LED</td><td>" + data.count[0].count + "</td></tr><tr><td>Total SODIUM</td><td>" + data.count[1].count + "</td></tr></table><button style='margin-top: 10px;' class='btn btn-danger' onclick=getdpxy('"+di+"')>select Lights</button>"
+            newMarker1 = new L.marker([y, x]).addTo(map).bindPopup(popupContent).openPopup();
+
 
 
         }
@@ -392,13 +405,13 @@ function getAllDemandpoints1(di){
 var newMarker='';
 var dataLayer='';
 
-function getdpxy(id,x,y){
+function getdpxy(id){
 
-        map.setView([y, x], 20);
-        if (newMarker != '') {
-            map.removeLayer(newMarker)
-        }
-        newMarker = new L.marker([y, x]).addTo(map);
+        // map.setView([y, x], 18);
+        // if (newMarker != '') {
+        //     map.removeLayer(newMarker)
+        // }
+        // newMarker = new L.marker([y, x]).addTo(map);
 
         $.ajax({
             url: "services/strret_lights.php?di=" + id,
@@ -426,7 +439,7 @@ function getdpxy(id,x,y){
                     ,
                     onEachFeature: function (feature, layer) {
 
-                        layer.bindPopup('<table><tr><td>id</td><td>' + feature.properties.p_id + '</td></tr><tr><td>pole type</td><td>' + feature.properties.pole_type + '</td></tr><tr><td>type</td><td>' + feature.properties.type + '</td></tr> <tr><td>pole number</td><td>' + feature.properties.pole_number + '</td></tr> <tr><td>Watt</td><td>' + feature.properties.watt + '</td></tr> <tr><td>phasing</td><td>' + feature.properties.phasing + '</td></tr></table>');
+                        layer.bindPopup('<table><tr><td>id</td><td>' + feature.properties.p_id + '</td></tr><tr><td>pole type</td><td>' + feature.properties.pole_type + '</td></tr><tr><td>type</td><td>' + feature.properties.type + '</td></tr> <tr><td>pole number</td><td>' + feature.properties.pole_number + '</td></tr> <tr><td>Watt</td><td>' + feature.properties.watt + '</td></tr> <tr><td>phasing</td><td>' + feature.properties.phasing + '</td></tr><tr><td>brand</td><td>' + feature.properties.brand + '</td></tr></table>');
                     }
                 });
                 dataLayer.addTo(map);
@@ -438,11 +451,27 @@ function getdpxy(id,x,y){
 }
 
 function clearAll(){
+    if (newMarker != '') {
+        map.removeLayer(newMarker)
+    }
+    if (newMarker1 != '') {
+        map.removeLayer(newMarker1)
+    }
 
+    if (dataLayer != '') {
+        map.removeLayer(dataLayer)
+    }
+    if(tempLayer!=''){
+        map.removeLayer(tempLayer)
+    }
+    //map.setView([3.016603, 101.858382],12);
 }
 
 $(document).ready(function(){
     fillCounts();
+    getProperties('light_panel');
+    //getProperties('dp_panel');
+
     //getProperties()
    // getAllDemandpoints();
     
